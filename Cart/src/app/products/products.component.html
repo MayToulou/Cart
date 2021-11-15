@@ -1,0 +1,15 @@
+<div class="products row mx-2 p-3 d-flex justify-content-center">
+    <div *ngFor="let product of allProducts" class="card m-2" style="width: 18rem;">
+        <div class="card-body">
+            <h3>{{ product.name }}
+            </h3>
+            <p class="card-text">{{ product.description }}</p>
+            <!-- TODO style should be in css file -->
+            <p class="card-text vatWarning">{{ product.note }}</p>
+            <h4 class=" card-text ">{{ product.price }} €</h4>
+        </div>
+        <div align="center ">
+            <button class="btn btn-primary " (click)="_addItemToCart(1, 1) ">add to cart</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<section>
+    <div class="spacer">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-lg-9">
+                    <div class="row shop-listing">
+                        <p>Your Cart</p>
+                        <table class="table shop-table">
+                            <tr>
+                                <th class="b-0">Name</th>
+                                <th class="b-0">Price</th>
+                                <th class="b-0">Vat</th>
+                                <th class="b-0">Quantity</th>
+                                <th class="b-0 text-right">Total Vat</th>
+                                <th class="b-0 text-right">Total Price</th>
+                            </tr>
+                            <tr *ngFor="let Item of currentCartItems">
+                                <td>{{ Item.name }}</td>
+                                <td>{{ Item.netPrice }}</td>
+                                <td>{{ Item.vat }}</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm bg-danger">-</button> {{ Item.quantity }}
+                                    <button class="btn btn-primary btn-sm bg-success" (click)="_incrementQTY(Item.id,1)">+</button>
+
+                                </td>
+                                <td class="text-right">
+                                    <h5 class="font-medium m-b-30">{{ Item.totalvat }}</h5>
+                                </td>
+
+                                <td class="text-right">
+                                    <h5 class="font-medium m-b-30">{{ Item.totalPrice }}</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right">
+                                    <h5>sum: {{totalPriceOrder}} €</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right">
+                                    <button class="btn btn-success" (click)="_sendOrder()">Send Order</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
